@@ -3,11 +3,9 @@ package com.example.imageslogger.services
 import android.annotation.SuppressLint
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
-import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
@@ -45,11 +43,9 @@ fun loadPicture(
         .into(object : CustomTarget<Bitmap>(){
             override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
                 bitmapImg.value = resource
-                Log.i("HH","Load Ready ${bitmapImg.value}")
             }
 
             override fun onLoadCleared(placeholder: Drawable?) {
-                Log.i("HH","LoadCleared")
             }
         })
     return bitmapImg

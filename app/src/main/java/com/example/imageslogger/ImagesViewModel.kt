@@ -1,6 +1,5 @@
 package com.example.imageslogger
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.imageslogger.model.Photo
@@ -23,12 +22,10 @@ class ImagesViewModel : ViewModel() {
         var myList = _selectedPhotos.value
         myList.add(""+(index+1))
         _selectedPhotos.value = myList
-        Log.i("HH","index: ${index+1} ,id : ${id}")
     }
     fun fetchImages() {
         viewModelScope.launch{
             repo.FetchImages(_images)
-            Log.i("HH", _images.value.size.toString())
         }
     }
 }
